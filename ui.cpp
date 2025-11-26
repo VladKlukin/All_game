@@ -20,3 +20,10 @@ void showMainMenu() {
     std::cout << "3. Выход" << std::endl;
     std::cout << "Выберите опцию: ";
 }
+
+void showModeMenu() {
+    std::cout << "\n=== ВЫБОР РЕЖИМА ===" << std::endl;
+    std::cout << "1. На ходы (20 ходов)" << std::endl;
+    std::cout << "2. На время (60 секунд)" << std::endl;
+    std::cout << "3. Назад" << std::endl;
+    std::cout << "Выберите режим: ";
