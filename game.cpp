@@ -67,3 +67,28 @@ std::vector<std::pair<int, int>> Game::findMatches() {
     
     return matches;
 }
+void Game::removeMatches() {
+    auto matches = findMatches();
+    if (matches.empty()) return;
+    
+    // Mark matched tiles for removal
+    for (auto& match : matches) {
+        grid[match.first][match.second].color = -1;
+    }
+    
+    // Apply gravity
+    for (int j = 0; j < gridSize; j++) {
+        int writeIndex = gridSize - 1;
+        for (int i = gridSize - 1; i >= 0; i--) {
+            if (grid[i][j].color != -1) {
+                grid[writeIndex][j].color = grid[i][j].color;
+                writeIndex--;
+            }
+        }
+        for (int i = writeIndex; i >= 0; i--) {
+            grid[i][j].color = rand() % colors.size();
+        }
+    }
+    
+    score += matches.size() * 10;
+}
