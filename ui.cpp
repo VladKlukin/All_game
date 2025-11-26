@@ -27,3 +27,4 @@ void showModeMenu() {
     std::cout << "2. На время (60 секунд)" << std::endl;
     std::cout << "3. Назад" << std::endl;
     std::cout << "Выберите режим: ";
+}
