@@ -24,3 +24,46 @@ void Game::initializeGrid() {//иницилизация поля
     }
     ensureNoMatches();
 }
+void Game::ensureNoMatches() {
+    while (findMatches().size() > 0) {
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                grid[i][j] = Tile(rand() % colors.size());
+            }
+        }
+    }
+}
+
+std::vector<std::pair<int, int>> Game::findMatches() {
+    std::vector<std::pair<int, int>> matches;
+    
+    // Check horizontal matches
+    for (int i = 0; i < gridSize; i++) {
+        for (int j = 0; j < gridSize - 2; j++) {
+            if (grid[i][j].color == grid[i][j + 1].color && 
+                grid[i][j].color == grid[i][j + 2].color) {
+                matches.push_back({i, j});
+                matches.push_back({i, j + 1});
+                matches.push_back({i, j + 2});
+            }
+        }
+    }
+    
+    // Check vertical matches
+    for (int i = 0; i < gridSize - 2; i++) {
+        for (int j = 0; j < gridSize; j++) {
+            if (grid[i][j].color == grid[i + 1][j].color && 
+                grid[i][j].color == grid[i + 2][j].color) {
+                matches.push_back({i, j});
+                matches.push_back({i + 1, j});
+                matches.push_back({i + 2, j});
+            }
+        }
+    }
+    
+    // Remove duplicates
+    std::sort(matches.begin(), matches.end());
+    matches.erase(std::unique(matches.begin(), matches.end()), matches.end());
+    
+    return matches;
+}
