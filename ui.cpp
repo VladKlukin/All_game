@@ -12,3 +12,11 @@ void showRules() {
     std::cout << "5. Управление: вводите координаты плиток для обмена" << std::endl;
     std::cout << "====================\n" << std::endl;
 }
+
+void showMainMenu() {
+    std::cout << "=== ТРИ В РЯД ===" << std::endl;
+    std::cout << "1. Начать игру" << std::endl;
+    std::cout << "2. Правила" << std::endl;
+    std::cout << "3. Выход" << std::endl;
+    std::cout << "Выберите опцию: ";
+}

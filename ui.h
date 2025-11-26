@@ -2,6 +2,7 @@
 #define UI_H
 
 void showRules();
+void showMainMenu();
 
 
 #endif
