@@ -114,3 +114,27 @@ void Game::swapTiles(int row1, int col1, int row2, int col2) {
         }
     }
 }
+void Game::display() {
+    std::cout << "\nТекущий счет: " << score << std::endl;
+    
+    if (mode == "moves") {
+        std::cout << "Осталось ходов: " << movesLeft << std::endl;
+    } else {
+        std::cout << "Осталось времени: " << timeLeft << " сек" << std::endl;
+    }
+    
+    std::cout << "\n  ";
+    for (int j = 0; j < gridSize; j++) {
+        std::cout << " " << j << " ";
+    }
+    std::cout << std::endl;
+    
+    for (int i = 0; i < gridSize; i++) {
+        std::cout << i << " ";
+        for (int j = 0; j < gridSize; j++) {
+            std::cout << colors[grid[i][j].color] << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
