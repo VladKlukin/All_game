@@ -135,3 +135,22 @@ void Game::display() {
     }
     cout << endl;
 }
+void Game::displayWithTime(int remainingTime) {
+    cout << "\nТекущий счет: " << score << endl;
+    cout << "Осталось времени: " << remainingTime << " сек" << endl;
+
+    cout << "\n  ";
+    for (int j = 0; j < gridSize; j++) {
+        cout << j << " ";
+    }
+    cout << endl;
+
+    for (int i = 0; i < gridSize; i++) {
+        cout << i << " ";
+        for (int j = 0; j < gridSize; j++) {
+            cout << colors[grid[i][j].color] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
