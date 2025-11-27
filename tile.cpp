@@ -18,3 +18,5 @@ public:
     Game(int size, std::string gameMode);
     void initializeGrid();
     void ensureNoMatches();
+    std::vector<std::pair<int, int>> findMatches();
+    void removeMatches();
