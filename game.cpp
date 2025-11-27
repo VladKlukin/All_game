@@ -88,3 +88,25 @@ void Game::removeMatches() {
 
     score += matches.size() * 10;
 }
+void Game::swapTiles(int row1, int col1, int row2, int col2) {
+    if (abs(row1 - row2) + abs(col1 - col2) != 1) {
+        cout << "Можно менять только соседние плитки!" << endl;
+        return;
+    }
+
+    swap(grid[row1][col1].color, grid[row2][col2].color);
+
+    if (findMatches().empty()) {
+        swap(grid[row1][col1].color, grid[row2][col2].color);
+        cout << "Не образуется совпадений! Ход отменен." << endl;
+    }
+    else {
+        if (mode == "moves") {
+            movesLeft--;
+        }
+        removeMatches();
+        while (!findMatches().empty()) {
+            removeMatches();
+        }
+    }
+}
