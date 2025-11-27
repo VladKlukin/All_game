@@ -44,3 +44,32 @@ void playTimeMode() {
 
     cout << "Финальный счет: " << game.getScore() << endl;
 }
+
+void playMovesMode() {
+    Game game(8, "moves");
+
+    cout << "=== РЕЖИМ НА ХОДЫ ===" << endl;
+    cout << "У вас 20 ходов!" << endl;
+
+    while (!game.isGameOver()) {
+        game.display();
+
+        int row1, col1, row2, col2;
+        cout << "Введите ход (строка1 столбец1 строка2 столбец2): ";
+        cin >> row1 >> col1 >> row2 >> col2;
+
+        if (cin.fail() 
+            row1 < 0 ||  row1 >= 8 || col1 < 0 || col1 >= 8 
+            row2 < 0 ||  row2 >= 8 || col2 < 0 || col2 >= 8) {
+            cout << "Неверные координаты! Используйте числа от 0 до 7." << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            continue;
+        }
+
+        game.swapTiles(row1, col1, row2, col2);
+    }
+
+    game.display();
+    cout << "Игра окончена! Ваш счет: " << game.getScore() << endl;
+}
