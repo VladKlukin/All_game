@@ -1,5 +1,5 @@
 #ifndef UI_H
-#defline UI_H
+#define UI_H
 
 void showRules();
 
