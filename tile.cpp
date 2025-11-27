@@ -25,3 +25,9 @@ public:
     void displayWithTime(int remainingTime);
     bool isGameOver();
     void updateTime(int elapsed);
+    int getScore();
+    std::string getMode();
+    int getMovesLeft();
+};
+
+#endif
