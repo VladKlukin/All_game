@@ -20,3 +20,6 @@ public:
     void ensureNoMatches();
     std::vector<std::pair<int, int>> findMatches();
     void removeMatches();
+    void swapTiles(int row1, int col1, int row2, int col2);
+    void display();
+    void displayWithTime(int remainingTime);
