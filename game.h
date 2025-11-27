@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <vector>
 #include <string>
 #include "tile.h"
@@ -29,4 +32,5 @@ public:
     std::string getMode();
     int getMovesLeft();
 };
+#endif
 
