@@ -26,3 +26,12 @@ void Game::initializeGrid() {
     }
     ensureNoMatches();
 }
+void Game::ensureNoMatches() {
+    while (findMatches().size() > 0) {
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                grid[i][j] = Tile(rand() % colors.size());
+            }
+        }
+    }
+}
