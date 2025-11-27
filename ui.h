@@ -3,5 +3,6 @@
 
 void showRules();
 void showMainMenu();
+void showModeMenu();
 
 #endif
