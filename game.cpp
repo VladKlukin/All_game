@@ -168,3 +168,6 @@ void Game::updateTime(int elapsed) {
         if (timeLeft < 0) timeLeft = 0;
     }
 }
+int Game::getScore() { return score; }
+string Game::getMode() { return mode; }
+int Game::getMovesLeft() { return movesLeft; }
