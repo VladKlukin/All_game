@@ -162,3 +162,9 @@ bool Game::isGameOver() {
         return timeLeft <= 0;
     }
 }
+void Game::updateTime(int elapsed) {
+    if (mode == "time") {
+        timeLeft -= elapsed;
+        if (timeLeft < 0) timeLeft = 0;
+    }
+}
