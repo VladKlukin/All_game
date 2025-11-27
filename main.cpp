@@ -73,3 +73,49 @@ void playMovesMode() {
     game.display();
     cout << "Игра окончена! Ваш счет: " << game.getScore() << endl;
 }
+
+int main() {
+    srand(time(0));
+    setlocale(LC_ALL, "Russian");
+
+    int mainChoice, modeChoice;
+
+    while (true) {
+        showMainMenu();
+        cin >> mainChoice;
+
+        if (mainChoice == 1) {
+            while (true) {
+                showModeMenu();
+                cin >> modeChoice;
+
+                if (modeChoice == 1) {
+                    playMovesMode();
+                    break;
+                }
+                else if (modeChoice == 2) {
+                    playTimeMode();
+                    break;
+                }
+                else if (modeChoice == 3) {
+                    break;
+                }
+                else {
+                    cout << "Неверный выбор!" << endl;
+                }
+            }
+        }
+        else if (mainChoice == 2) {
+            showRules();
+        }
+        else if (mainChoice == 3) {
+            cout << "До свидания!" << endl;
+            break;
+        }
+        else {
+            cout << "Неверный выбор!" << endl;
+        }
+    }
+
+    return 0;
+}
