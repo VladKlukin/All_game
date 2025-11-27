@@ -154,3 +154,11 @@ void Game::displayWithTime(int remainingTime) {
     }
     cout << endl;
 }
+bool Game::isGameOver() {
+    if (mode == "moves") {
+        return movesLeft <= 0;
+    }
+    else {
+        return timeLeft <= 0;
+    }
+}
