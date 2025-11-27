@@ -13,3 +13,8 @@ private:
     string mode;
 
     const vector<string> colors = { "$", "&", "*", "#", "@" };
+
+public:
+    Game(int size, std::string gameMode);
+    void initializeGrid();
+    void ensureNoMatches();
